@@ -7,10 +7,10 @@ public class PalindromeCheckerApp {
         System.out.println("============================================================");
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a word to check: ");
+        System.out.print("Enter a word or sentence to check: ");
         String input = scanner.nextLine();
 
-        String cleaned = input.toLowerCase();
+        String cleaned = input.toLowerCase().replaceAll("[^a-z0-9]", "");
         String reversed = new StringBuilder(cleaned).reverse().toString();
         boolean isPalindrome = cleaned.equals(reversed);
 
