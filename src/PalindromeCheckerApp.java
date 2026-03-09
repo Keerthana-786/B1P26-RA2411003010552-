@@ -3,8 +3,14 @@ public class PalindromeCheckerApp {
         System.out.println("============================================================");
         System.out.println("         Welcome to Palindrome Checker App");
         System.out.println("============================================================");
-        System.out.println("This application checks whether a given word or");
-        System.out.println("sentence is a Palindrome.");
+
+        String input = "level";
+        String reversed = new StringBuilder(input).reverse().toString();
+        boolean isPalindrome = input.equals(reversed);
+
+        System.out.println("Input          : " + input);
+        System.out.println("Reversed       : " + reversed);
+        System.out.println("Is Palindrome? : " + isPalindrome);
         System.out.println("============================================================");
     }
 }
