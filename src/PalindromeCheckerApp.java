@@ -1,6 +1,5 @@
+import java.util.Scanner;
 import java.util.Stack;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PalindromeCheckerApp {
 
@@ -36,25 +35,23 @@ public class PalindromeCheckerApp {
         System.out.println("============================================================");
         System.out.println("         Welcome to Palindrome Checker App");
         System.out.println("============================================================");
-        List<String> words = new ArrayList<>();
-        words.add("level");
-        words.add("hello");
-        words.add("racecar");
-        words.add("world");
-        words.add("madam");
-        words.add("java");
-        int palindromeCount = 0;
-        System.out.println("Checking list of words:");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = scanner.nextLine();
+        String[] words = sentence.split(" ");
+        String longestPalindrome = "";
         System.out.println("------------------------------------------------------------");
         for (String word : words) {
             String cleaned = word.toLowerCase().replaceAll("[^a-z0-9]", "");
             boolean result = twoPointerCheck(cleaned);
             System.out.println("Word: " + word + " -> Is Palindrome? : " + result);
-            if (result) palindromeCount++;
+            if (result && cleaned.length() > longestPalindrome.length()) {
+                longestPalindrome = cleaned;
+            }
         }
         System.out.println("------------------------------------------------------------");
-        System.out.println("Total Words      : " + words.size());
-        System.out.println("Total Palindromes: " + palindromeCount);
+        System.out.println("Longest Palindrome: " + longestPalindrome);
         System.out.println("============================================================");
+        scanner.close();
     }
 }
