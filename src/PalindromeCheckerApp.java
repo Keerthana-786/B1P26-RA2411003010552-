@@ -1,5 +1,6 @@
-import java.util.Scanner;
 import java.util.Stack;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PalindromeCheckerApp {
 
@@ -35,16 +36,25 @@ public class PalindromeCheckerApp {
         System.out.println("============================================================");
         System.out.println("         Welcome to Palindrome Checker App");
         System.out.println("============================================================");
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a word to check: ");
-        String input = scanner.nextLine();
-        String cleaned = input.toLowerCase().replaceAll("[^a-z0-9]", "");
-        System.out.println("Input          : " + input);
-        System.out.println("Cleaned        : " + cleaned);
-        System.out.println("Two Pointer    : " + twoPointerCheck(cleaned));
-        System.out.println("Recursive      : " + recursiveCheck(cleaned, 0, cleaned.length() - 1));
-        System.out.println("Stack Based    : " + stackCheck(cleaned));
+        List<String> words = new ArrayList<>();
+        words.add("level");
+        words.add("hello");
+        words.add("racecar");
+        words.add("world");
+        words.add("madam");
+        words.add("java");
+        int palindromeCount = 0;
+        System.out.println("Checking list of words:");
+        System.out.println("------------------------------------------------------------");
+        for (String word : words) {
+            String cleaned = word.toLowerCase().replaceAll("[^a-z0-9]", "");
+            boolean result = twoPointerCheck(cleaned);
+            System.out.println("Word: " + word + " -> Is Palindrome? : " + result);
+            if (result) palindromeCount++;
+        }
+        System.out.println("------------------------------------------------------------");
+        System.out.println("Total Words      : " + words.size());
+        System.out.println("Total Palindromes: " + palindromeCount);
         System.out.println("============================================================");
-        scanner.close();
     }
 }
