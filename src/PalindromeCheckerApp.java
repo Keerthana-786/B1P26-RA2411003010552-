@@ -10,10 +10,12 @@ public class PalindromeCheckerApp {
         System.out.print("Enter a word to check: ");
         String input = scanner.nextLine();
 
-        String reversed = new StringBuilder(input).reverse().toString();
-        boolean isPalindrome = input.equals(reversed);
+        String cleaned = input.toLowerCase();
+        String reversed = new StringBuilder(cleaned).reverse().toString();
+        boolean isPalindrome = cleaned.equals(reversed);
 
         System.out.println("Input          : " + input);
+        System.out.println("Cleaned        : " + cleaned);
         System.out.println("Reversed       : " + reversed);
         System.out.println("Is Palindrome? : " + isPalindrome);
         System.out.println("============================================================");
