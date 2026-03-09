@@ -13,6 +13,12 @@ public class PalindromeCheckerApp {
         return true;
     }
 
+    public static boolean recursiveCheck(String str, int left, int right) {
+        if (left >= right) return true;
+        if (str.charAt(left) != str.charAt(right)) return false;
+        return recursiveCheck(str, left + 1, right - 1);
+    }
+
     public static void main(String[] args) {
         System.out.println("============================================================");
         System.out.println("         Welcome to Palindrome Checker App");
@@ -21,11 +27,10 @@ public class PalindromeCheckerApp {
         System.out.print("Enter a word to check: ");
         String input = scanner.nextLine();
         String cleaned = input.toLowerCase().replaceAll("[^a-z0-9]", "");
-        boolean isPalindrome = twoPointerCheck(cleaned);
         System.out.println("Input          : " + input);
         System.out.println("Cleaned        : " + cleaned);
-        System.out.println("Is Palindrome? : " + isPalindrome);
-        System.out.println("Algorithm      : Two Pointer");
+        System.out.println("Two Pointer    : " + twoPointerCheck(cleaned));
+        System.out.println("Recursive      : " + recursiveCheck(cleaned, 0, cleaned.length() - 1));
         System.out.println("============================================================");
         scanner.close();
     }
